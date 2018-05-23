@@ -494,8 +494,6 @@ namespace DocMag.DataSet {
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("mstCustomerKey", new global::System.Data.DataColumn[] {
                                 this.columncustomer_no}, true));
                 this.columncustomer_no.AutoIncrement = true;
-                this.columncustomer_no.AutoIncrementSeed = -1;
-                this.columncustomer_no.AutoIncrementStep = -1;
                 this.columncustomer_no.AllowDBNull = false;
                 this.columncustomer_no.Unique = true;
                 this.columncustomer_no.Caption = "顧客№";

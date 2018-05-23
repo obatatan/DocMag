@@ -7,7 +7,7 @@ namespace DocMag.DBAccesor {
     public abstract class AbstDbAccesor : IDbAccesor {
         public abstract string ConnectionStr { get; }
 
-        public DbConnection Con { get; set; }
+        public virtual DbConnection Con { get; set; }
 
         public bool Close() {
             try {
@@ -20,7 +20,7 @@ namespace DocMag.DBAccesor {
 
         public bool Connect() {
             try {
-                Con.Close();
+                Con.Open();
             } catch {
                 return false;
             }

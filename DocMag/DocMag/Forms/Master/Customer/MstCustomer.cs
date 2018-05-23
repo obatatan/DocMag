@@ -37,7 +37,10 @@ namespace DocMag.Forms.Master {
 
         protected override bool UpdateLogic() {
             var dt = this._grid.Grid.DataSource;
-            docMagDbAccesor.ExecuteDuplicateInsert((IListSource)dt);
+
+            if (docMagDbAccesor.ExecuteDuplicateInsert((IListSource)dt)) {
+                return false;
+            }
             return true;
         }
     }

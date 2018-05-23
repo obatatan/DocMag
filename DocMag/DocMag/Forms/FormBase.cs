@@ -14,7 +14,10 @@ namespace DocMag.Forms {
             InitializeComponent();
 
             this.btnUpdate.Click += (s, e) => {
-                UpdateLogic();
+                if (UpdateLogic())
+                    MessageBox.Show("更新しました。");
+                else
+                    MessageBox.Show("更新に失敗しました。");
             };
         }
 
