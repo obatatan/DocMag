@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DocMagDataSet" targetNamespace="http://tempuri.org/DocMagDataSet.xsd" xmlns:mstns="http://tempuri.org/DocMagDataSet.xsd" xmlns="http://tempuri.org/DocMagDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="DocMagConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="DocMagConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.WindowsFormsApp1.Properties.Settings.GlobalReference.Default.DocMagConnectionString" Provider="MySql.Data.MySqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="mst_customerTableAdapter" GeneratorDataComponentClassName="mst_customerTableAdapter" Name="mst_customer" UserDataComponentName="mst_customerTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="DocMagConnectionString (Settings)" DbObjectName="DocMag.mst_customer" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT customer_no, customer_name, customer_company_name, customer_bu_name, customer_ka_name FROM mst_customer</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings />
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="mst_employeeTableAdapter" GeneratorDataComponentClassName="mst_employeeTableAdapter" Name="mst_employee" UserDataComponentName="mst_employeeTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="DocMagConnectionString (Settings)" DbObjectName="DocMag.mst_employee" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT employee_id, employee_name, employee_phone_no FROM mst_employee</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings />
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="tbl_contractTableAdapter" GeneratorDataComponentClassName="tbl_contractTableAdapter" Name="tbl_contract" UserDataComponentName="tbl_contractTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="DocMagConnectionString (Settings)" DbObjectName="DocMag.tbl_contract" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT contract_no, customer_no, employee_id, contract_value FROM tbl_contract</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings />
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="tbl_reportTableAdapter" GeneratorDataComponentClassName="tbl_reportTableAdapter" Name="tbl_report" UserDataComponentName="tbl_reportTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="DocMagConnectionString (Settings)" DbObjectName="DocMag.tbl_report" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT report_no, contract_no, report_name, rate_div, rate FROM tbl_report</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings />
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DocMagDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="DocMagDataSet" msprop:Generator_UserDSName="DocMagDataSet">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="mst_customer" msprop:Generator_TableClassName="mst_customerDataTable" msprop:Generator_TableVarName="tablemst_customer" msprop:Generator_TablePropName="mst_customer" msprop:Generator_RowDeletingName="mst_customerRowDeleting" msprop:Generator_RowChangingName="mst_customerRowChanging" msprop:Generator_RowEvHandlerName="mst_customerRowChangeEventHandler" msprop:Generator_RowDeletedName="mst_customerRowDeleted" msprop:Generator_UserTableName="mst_customer" msprop:Generator_RowChangedName="mst_customerRowChanged" msprop:Generator_RowEvArgName="mst_customerRowChangeEvent" msprop:Generator_RowClassName="mst_customerRow">
+          <xs:complexType>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="mst_employee" msprop:Generator_TableClassName="mst_employeeDataTable" msprop:Generator_TableVarName="tablemst_employee" msprop:Generator_TablePropName="mst_employee" msprop:Generator_RowDeletingName="mst_employeeRowDeleting" msprop:Generator_RowChangingName="mst_employeeRowChanging" msprop:Generator_RowEvHandlerName="mst_employeeRowChangeEventHandler" msprop:Generator_RowDeletedName="mst_employeeRowDeleted" msprop:Generator_UserTableName="mst_employee" msprop:Generator_RowChangedName="mst_employeeRowChanged" msprop:Generator_RowEvArgName="mst_employeeRowChangeEvent" msprop:Generator_RowClassName="mst_employeeRow">
+          <xs:complexType>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="tbl_contract" msprop:Generator_TableClassName="tbl_contractDataTable" msprop:Generator_TableVarName="tabletbl_contract" msprop:Generator_TablePropName="tbl_contract" msprop:Generator_RowDeletingName="tbl_contractRowDeleting" msprop:Generator_RowChangingName="tbl_contractRowChanging" msprop:Generator_RowEvHandlerName="tbl_contractRowChangeEventHandler" msprop:Generator_RowDeletedName="tbl_contractRowDeleted" msprop:Generator_UserTableName="tbl_contract" msprop:Generator_RowChangedName="tbl_contractRowChanged" msprop:Generator_RowEvArgName="tbl_contractRowChangeEvent" msprop:Generator_RowClassName="tbl_contractRow">
+          <xs:complexType>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="tbl_report" msprop:Generator_TableClassName="tbl_reportDataTable" msprop:Generator_TableVarName="tabletbl_report" msprop:Generator_TablePropName="tbl_report" msprop:Generator_RowDeletingName="tbl_reportRowDeleting" msprop:Generator_RowChangingName="tbl_reportRowChanging" msprop:Generator_RowEvHandlerName="tbl_reportRowChangeEventHandler" msprop:Generator_RowDeletedName="tbl_reportRowDeleted" msprop:Generator_UserTableName="tbl_report" msprop:Generator_RowChangedName="tbl_reportRowChanged" msprop:Generator_RowEvArgName="tbl_reportRowChangeEvent" msprop:Generator_RowClassName="tbl_reportRow">
+          <xs:complexType>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
