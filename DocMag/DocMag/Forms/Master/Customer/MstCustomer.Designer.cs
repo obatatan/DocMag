@@ -9,7 +9,7 @@
         /// 使用中のリソースをすべてクリーンアップします。
         /// </summary>
         /// <param name="disposing">マネージ リソースを破棄する場合は true を指定し、その他の場合は false を指定します。</param>
-        protected override void Dispose(bool disposing) {
+        protected void Dispose(bool disposing) {
             if (disposing && (components != null)) {
                 components.Dispose();
             }
@@ -41,7 +41,7 @@
             // 
             // btnUpdate
             // 
-            this.btnUpdate.Location = new System.Drawing.Point(3, 3);
+            this.btnUpdate.Location = new System.Drawing.Point(84, 6);
             // 
             // MstCustomer
             // 

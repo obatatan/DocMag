@@ -38,10 +38,11 @@ namespace DocMag.Forms.Master {
         protected override bool UpdateLogic() {
             var dt = this._grid.Grid.DataSource;
 
-            if (docMagDbAccesor.ExecuteDuplicateInsert((IListSource)dt)) {
-                return false;
+            if (docMagDbAccesor.ExecuteDuplicateInsert((IListSource)dt) != -1) {
+                UpdateDisplay();
+                return true;
             }
-            return true;
+            return false;
         }
     }
 }

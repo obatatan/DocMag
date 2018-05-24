@@ -10,14 +10,13 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace DocMag.DBAccesor {
-    public class MySqlAccesor : AbstDbAccesor {
+    public class MySqlAccesor : AbstDbAccesor<MySqlConnection, MySqlDataAdapter, MySqlCommand> {
         public override string ConnectionStr { get { throw new NotImplementedException(); } }
 
         /// <summary>
         /// コンストラクタ
         /// </summary>
         public MySqlAccesor() {
-            Con = new MySqlConnection(ConnectionStr);
             Connect();
         }
 
@@ -43,25 +42,21 @@ namespace DocMag.DBAccesor {
 
             MySqlCommandBuilder cb = new MySqlCommandBuilder(da);
             da.Fill(dt);
-            return dt;
+            return SelectDataTable($@"SELECT * FROM {dt.TableName}", dataTable);
         }
 
-        /// <summary>
-        /// <para>データをインサートします。</para>
+        ///<para>データをインサートします。</para>
         /// <para>指定したキーでデータが存在する場合、キー以外をアップデートする。</para>
         /// </summary>
         /// <param name="dataTable"></param>
-        /// <returns></returns>
-        public virtual bool ExecuteDuplicateInsert(IListSource dataTable) {
-            if (Status() != ConnectionState.Open) {
-                try {
-                    Connect();
-                } catch {
-                    return false;
-                }
-            }
+        /// <returns>影響のあった行数(エラーの場合は-1を返却)</returns>
+        public virtual int ExecuteDuplicateInsert(IListSource dataTable) {
+            if (Status() != ConnectionState.Open)
+                if (Connect())
+                    return -1;
 
             DataTable dt = (DataTable)dataTable;
+
             #region クエリ
             string query = $@"INSERT INTO
        {dt.TableName} ({CreateColumnsString(dataTable)})
@@ -71,21 +66,7 @@ namespace DocMag.DBAccesor {
         {CreateDuplicateUpdateString(dataTable)};";
             #endregion
 
-            MySqlTransaction transaction = ((MySqlConnection)Con).BeginTransaction(IsolationLevel.ReadCommitted);
-            try {
-                MySqlCommand cmd = new MySqlCommand();
-
-                cmd.CommandText = query;
-                cmd.Connection = (MySqlConnection)Con;
-                cmd.Transaction = transaction;
-                cmd.ExecuteNonQuery();
-
-                transaction.Commit();
-            } catch (System.Exception) {
-                transaction.Rollback();
-                return false;
-            }
-            return true;
+            return InsertOrUpdateOrDelete(query);
         }
 
         /// <summary>

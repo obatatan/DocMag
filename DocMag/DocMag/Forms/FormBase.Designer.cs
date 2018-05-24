@@ -27,6 +27,7 @@
             this.pnlFooter = new System.Windows.Forms.Panel();
             this.btnUpdate = new System.Windows.Forms.Button();
             this.pnlMain = new System.Windows.Forms.Panel();
+            this.btnDel = new System.Windows.Forms.Button();
             this.pnlFooter.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -40,6 +41,7 @@
             // 
             // pnlFooter
             // 
+            this.pnlFooter.Controls.Add(this.btnDel);
             this.pnlFooter.Controls.Add(this.btnUpdate);
             this.pnlFooter.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.pnlFooter.Location = new System.Drawing.Point(0, 342);
@@ -49,7 +51,7 @@
             // 
             // btnUpdate
             // 
-            this.btnUpdate.Location = new System.Drawing.Point(536, 6);
+            this.btnUpdate.Location = new System.Drawing.Point(89, 6);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(75, 23);
             this.btnUpdate.TabIndex = 1;
@@ -63,6 +65,15 @@
             this.pnlMain.Name = "pnlMain";
             this.pnlMain.Size = new System.Drawing.Size(637, 305);
             this.pnlMain.TabIndex = 5;
+            // 
+            // btnDel
+            // 
+            this.btnDel.Location = new System.Drawing.Point(3, 6);
+            this.btnDel.Name = "btnDel";
+            this.btnDel.Size = new System.Drawing.Size(75, 23);
+            this.btnDel.TabIndex = 2;
+            this.btnDel.Text = "削除";
+            this.btnDel.UseVisualStyleBackColor = true;
             // 
             // FormBase
             // 
@@ -83,5 +94,6 @@
         protected System.Windows.Forms.Panel pnlMain;
         protected System.Windows.Forms.Panel pnlFooter;
         protected System.Windows.Forms.Button btnUpdate;
+        protected System.Windows.Forms.Button btnDel;
     }
 }
